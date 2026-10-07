@@ -1,0 +1,210 @@
+{
+  "access": [
+    {
+      "file": "pages/access-01.html",
+      "title": "Login"
+    },
+    {
+      "file": "pages/access-02.html",
+      "title": "Recuperar senha"
+    },
+    {
+      "file": "pages/access-03.html",
+      "title": "Verifique seu e-mail"
+    },
+    {
+      "file": "pages/access-04.html",
+      "title": "Redefinir senha"
+    },
+    {
+      "file": "pages/access-05.html",
+      "title": "Primeiro acesso"
+    },
+    {
+      "file": "pages/access-06.html",
+      "title": "Conta ativada"
+    }
+  ],
+  "mentor": [
+    {
+      "file": "pages/mentor-01.html",
+      "title": "Visão geral da mentoria"
+    },
+    {
+      "file": "pages/mentor-02.html",
+      "title": "Minhas alunas"
+    },
+    {
+      "file": "pages/mentor-03.html",
+      "title": "Nova aluna"
+    },
+    {
+      "file": "pages/mentor-04.html",
+      "title": "Convite enviado"
+    },
+    {
+      "file": "pages/mentor-05.html",
+      "title": "Perfil da aluna"
+    },
+    {
+      "file": "pages/mentor-06.html",
+      "title": "Acompanhamento"
+    },
+    {
+      "file": "pages/mentor-07.html",
+      "title": "Relatórios da mentoria"
+    },
+    {
+      "file": "pages/mentor-08.html",
+      "title": "Gestão de desafios"
+    },
+    {
+      "file": "pages/mentor-09.html",
+      "title": "Gestão de conquistas"
+    },
+    {
+      "file": "pages/mentor-10.html",
+      "title": "Central de suporte — mentora"
+    },
+    {
+      "file": "pages/mentor-11.html",
+      "title": "Configurações da mentoria"
+    },
+    {
+      "file": "pages/mentor-12.html",
+      "title": "Equipe e usuários"
+    },
+    {
+      "file": "pages/mentor-13.html",
+      "title": "Permissões"
+    },
+    {
+      "file": "pages/mentor-14.html",
+      "title": "Plano e faturamento"
+    }
+  ],
+  "student": [
+    {
+      "file": "pages/student-01.html",
+      "title": "Dashboard da aluna"
+    },
+    {
+      "file": "pages/student-02.html",
+      "title": "Leads"
+    },
+    {
+      "file": "pages/student-03.html",
+      "title": "Novo lead"
+    },
+    {
+      "file": "pages/student-04.html",
+      "title": "Detalhe do lead"
+    },
+    {
+      "file": "pages/student-05.html",
+      "title": "Contatos"
+    },
+    {
+      "file": "pages/student-06.html",
+      "title": "Empresas"
+    },
+    {
+      "file": "pages/student-07.html",
+      "title": "Pipeline de vendas"
+    },
+    {
+      "file": "pages/student-08.html",
+      "title": "Nova oportunidade"
+    },
+    {
+      "file": "pages/student-09.html",
+      "title": "Detalhe da oportunidade"
+    },
+    {
+      "file": "pages/student-10.html",
+      "title": "Minhas tarefas"
+    },
+    {
+      "file": "pages/student-11.html",
+      "title": "Calendário"
+    },
+    {
+      "file": "pages/student-12.html",
+      "title": "Minhas metas"
+    },
+    {
+      "file": "pages/student-13.html",
+      "title": "Desafios"
+    },
+    {
+      "file": "pages/student-14.html",
+      "title": "Conquistas"
+    },
+    {
+      "file": "pages/student-15.html",
+      "title": "Meu progresso"
+    },
+    {
+      "file": "pages/student-16.html",
+      "title": "Evolução da comunidade"
+    },
+    {
+      "file": "pages/student-17.html",
+      "title": "Comunicação"
+    },
+    {
+      "file": "pages/student-18.html",
+      "title": "Comunicação — nenhuma conversa selecionada"
+    },
+    {
+      "file": "pages/student-19.html",
+      "title": "Central de suporte"
+    },
+    {
+      "file": "pages/student-20.html",
+      "title": "Detalhe do chamado"
+    },
+    {
+      "file": "pages/student-21.html",
+      "title": "Relatórios"
+    },
+    {
+      "file": "pages/student-22.html",
+      "title": "Meu perfil"
+    },
+    {
+      "file": "pages/student-23.html",
+      "title": "Notificações"
+    },
+    {
+      "file": "pages/student-24.html",
+      "title": "Configurações"
+    },
+    {
+      "file": "pages/student-25.html",
+      "title": "Meu plano"
+    }
+  ],
+  "states": [
+    {
+      "file": "pages/states-01.html",
+      "title": "Empty states"
+    },
+    {
+      "file": "pages/states-02.html",
+      "title": "Loading e skeleton"
+    },
+    {
+      "file": "pages/states-03.html",
+      "title": "Erros e formulário inválido"
+    },
+    {
+      "file": "pages/states-04.html",
+      "title": "Sucesso, confirmação e toasts"
+    },
+    {
+      "file": "pages/states-05.html",
+      "title": "Modais, dropdowns e tooltips"
+    }
+  ]
+}

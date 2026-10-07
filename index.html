@@ -1,0 +1,67 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>INDISCUTÍVEL HUB</title><style>*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#faf9f5}#screen{width:100%;height:100%;border:0;display:block}.demoToast{position:fixed;right:18px;bottom:18px;z-index:9999;background:#032A15;color:#fff;padding:11px 15px;border-radius:10px;font:600 13px -apple-system,BlinkMacSystemFont,sans-serif;box-shadow:0 10px 30px #0003;opacity:0;transform:translateY(8px);transition:.2s;pointer-events:none}.demoToast.on{opacity:1;transform:none}.demoModal{position:fixed;inset:0;z-index:10000;background:rgba(3,42,21,.36);display:none;align-items:center;justify-content:center;padding:24px}.demoModal.on{display:flex}.demoBox{width:min(520px,100%);background:#FBFAF7;border:1px solid #E7E2D6;border-radius:22px;padding:28px;box-shadow:0 28px 80px #032a1533;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#1D1C1D}.demoBox .eyebrow{font-size:11px;letter-spacing:.14em;font-weight:800;color:#8B6F3A;text-transform:uppercase}.demoBox h2{font-family:Georgia,serif;font-weight:500;font-size:28px;margin:8px 0}.demoBox p{color:#6E695E;line-height:1.55}.demoBox .row{display:flex;gap:10px;justify-content:flex-end;margin-top:22px}.demoBox button{border:0;border-radius:10px;padding:11px 15px;font-weight:700}.demoBox .ok{background:#032A15;color:#fff}.demoBox .cancel{background:#EEECE6;color:#34322E}</style></head><body><iframe id="screen" title="INDISCUTÍVEL HUB"></iframe><div id="toast" class="demoToast"></div><div id="demoModal" class="demoModal"><div class="demoBox"><div class="eyebrow">Demonstração interativa</div><h2 id="demoTitle">Ação disponível</h2><p id="demoDesc">Esta funcionalidade está simulada para apresentação.</p><div class="row"><button class="cancel" onclick="closeDemoModal()">Cancelar</button><button class="ok" onclick="confirmDemoAction()">Confirmar</button></div></div></div><script>
+const P={
+ access:['access-01.html','access-02.html','access-03.html','access-04.html','access-05.html','access-06.html'],
+ mentor:['mentor-01.html','mentor-02.html','mentor-03.html','mentor-04.html','mentor-05.html','mentor-06.html','mentor-07.html','mentor-08.html','mentor-09.html','mentor-10.html','mentor-11.html','mentor-12.html','mentor-13.html','mentor-14.html'],
+ student:['student-01.html','student-02.html','student-03.html','student-04.html','student-05.html','student-06.html','student-07.html','student-08.html','student-09.html','student-10.html','student-11.html','student-12.html','student-13.html','student-14.html','student-15.html','student-16.html','student-17.html','student-18.html','student-19.html','student-20.html','student-21.html','student-22.html','student-23.html','student-24.html','student-25.html']};
+let role=sessionStorage.getItem('hub_role')||'', current='access-01.html', pendingAction=''; const f=document.getElementById('screen');
+function load(file){current=file;f.src='pages/'+file;history.replaceState(null,'','#'+file.replace('.html',''))}
+function pageTitle(){const all={'access-01.html':'Login','access-02.html':'Recuperar senha','access-03.html':'Verifique seu e-mail','access-04.html':'Redefinir senha','access-05.html':'Primeiro acesso','access-06.html':'Conta ativada','mentor-01.html':'Visão geral da mentoria','mentor-02.html':'Minhas alunas','mentor-03.html':'Nova aluna','mentor-04.html':'Convite enviado','mentor-05.html':'Perfil da aluna','mentor-06.html':'Acompanhamento','mentor-07.html':'Relatórios da mentoria','mentor-08.html':'Gestão de desafios','mentor-09.html':'Gestão de conquistas','mentor-10.html':'Central de suporte','mentor-11.html':'Configurações','mentor-12.html':'Equipe e usuários','mentor-13.html':'Permissões','mentor-14.html':'Plano e faturamento','student-01.html':'Dashboard','student-02.html':'Leads','student-03.html':'Novo lead','student-04.html':'Detalhe do lead','student-05.html':'Contatos','student-06.html':'Empresas','student-07.html':'Pipeline','student-08.html':'Nova oportunidade','student-09.html':'Detalhe da oportunidade','student-10.html':'Tarefas','student-11.html':'Calendário','student-12.html':'Metas','student-13.html':'Desafios','student-14.html':'Conquistas','student-15.html':'Meu progresso','student-16.html':'Ranking','student-17.html':'Chat','student-18.html':'Chat sem conversa','student-19.html':'Suporte','student-20.html':'Detalhe do chamado','student-21.html':'Relatórios','student-22.html':'Meu perfil','student-23.html':'Notificações','student-24.html':'Configurações','student-25.html':'Plano'};return all[current]||''}
+function openDemoModal(action){pendingAction=action||'Ação';document.getElementById('demoTitle').textContent=action||'Ação disponível';document.getElementById('demoDesc').textContent='Esta ação está funcionando em modo de demonstração. Ao confirmar, o HUB simulará a operação usando dados fictícios, sem alterar dados reais ou utilizar um servidor.';document.getElementById('demoModal').classList.add('on')}
+function closeDemoModal(){document.getElementById('demoModal').classList.remove('on')}
+function confirmDemoAction(){closeDemoModal();say((pendingAction||'Ação')+' concluída na demonstração')}
+function say(s){const t=document.getElementById('toast');t.textContent=s;t.classList.add('on');clearTimeout(window.__tt);window.__tt=setTimeout(()=>t.classList.remove('on'),1900)}
+function norm(s){return(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\s+/g,' ').trim()}
+const M={
+ 'visao geral da mentoria':1,'dashboard':1,'inicio':1,'minhas alunas':2,'alunas':2,'nova aluna':3,'adicionar aluna':3,'perfil da aluna':5,'acompanhamento':6,'relatorios':7,'relatorios da mentoria':7,'desafios':8,'gestao de desafios':8,'conquistas':9,'gestao de conquistas':9,'suporte':10,'central de suporte':10,'configuracoes':11,'equipe e usuarios':12,'equipe':12,'usuarios':12,'permissoes':13,'plano e faturamento':14,'faturamento':14,'plano':14};
+const S={'dashboard':1,'inicio':1,'leads':2,'novo lead':3,'adicionar lead':3,'contatos':5,'empresas':6,'pipeline':7,'pipeline de vendas':7,'nova oportunidade':8,'oportunidades':7,'tarefas':10,'minhas tarefas':10,'calendario':11,'metas':12,'minhas metas':12,'desafios':13,'conquistas':14,'meu progresso':15,'progresso':15,'ranking':16,'evolucao da comunidade':16,'comunicacao':17,'chat':17,'suporte':19,'central de suporte':19,'relatorios':21,'meu perfil':22,'perfil':22,'notificacoes':23,'configuracoes':24,'meu plano':25,'plano':25};
+function routeText(raw,title){let x=norm(raw),tt=norm(pageTitle()||title);
+ if(tt==='login'&&(x==='entrar'||x.includes('acessar painel da mentoria'))){
+   let doc=null,email=''; try{doc=f.contentDocument; email=doc?([].slice.call(doc.querySelectorAll('input[type=\"email\"')).map(i=>i.value)[0]||''):''}catch(e){}
+   role=x.includes('mentoria')?'mentor':(norm(email).includes('mentora')?'mentor':'student');
+   sessionStorage.setItem('hub_role',role); say(role==='student'?'Acesso da aluna':'Acesso da mentora');
+   return setTimeout(()=>load(role==='student'?P.student[0]:P.mentor[0]),180);
+ }
+ if(x.includes('esqueci')||x.includes('recuperar senha')) return load(P.access[1]);
+ if(tt.includes('recuperar senha')&&(x.includes('enviar')||x.includes('continuar'))) return load(P.access[2]);
+ if(tt.includes('verifique seu e-mail')&&(x.includes('voltar')||x.includes('login'))) return load(P.access[0]);
+ if(tt.includes('redefinir senha')&&(x.includes('salvar')||x.includes('redefinir'))) return load(P.access[5]);
+ if(tt.includes('primeiro acesso')&&(x.includes('ativar')||x.includes('continuar'))) return load(P.access[5]);
+ if(role==='mentor'){
+   if((tt.includes('nova aluna'))&&(x.includes('enviar')||x.includes('convidar')||x.includes('criar'))) return load(P.mentor[3]);
+   if(tt.includes('convite enviado')&&(x.includes('voltar')||x.includes('alunas'))) return load(P.mentor[1]);
+   if(x.includes('nova aluna')||x.includes('adicionar aluna')||x.includes('convidar aluna')) return load(P.mentor[2]);
+   if((x.includes('ver perfil')||x.includes('detalhes')||x.includes('mariana'))) return load(P.mentor[4]);
+   for(const [k,v] of Object.entries(M)) if(x===k||x.startsWith(k+' ')||x.includes(k)) return load(P.mentor[v-1]);
+ }
+ if(role==='student'){
+   if(tt==='novo lead'&&(x.includes('salvar')||x.includes('criar'))) {say('Lead salvo na demonstração');return load(P.student[1])}
+   if(tt==='nova oportunidade'&&(x.includes('salvar')||x.includes('criar'))) {say('Oportunidade criada');return load(P.student[6])}
+   if(x.includes('novo lead')||x.includes('adicionar lead')) return load(P.student[2]);
+   if(x.includes('nova oportunidade')||x.includes('adicionar oportunidade')) return load(P.student[7]);
+   if((tt==='leads'||tt.includes('pipeline'))&&(x.includes('ver')||x.includes('detalhe')||x.includes('aurora')||x.includes('studio'))) return load(tt==='leads'?P.student[3]:P.student[8]);
+   if(tt.includes('central de suporte')&&(x.includes('ver')||x.includes('detalhe')||x.includes('#'))) return load(P.student[19]);
+   for(const [k,v] of Object.entries(S)) if(x===k||x.startsWith(k+' ')||x.includes(k)) return load(P.student[v-1]);
+ }
+ if(x==='sair'||x.includes('encerrar sessao')||x.includes('logout')){sessionStorage.clear();role='';return load(P.access[0])}
+ if(x==='sair'||x.includes('encerrar sessao')||x.includes('logout')){sessionStorage.clear();role='';return load(P.access[0])}
+ // Rotas auxiliares entre telas existentes
+ if(role==='student' && (x.includes('ver todas')||x.includes('ver tarefas')) && tt==='dashboard') return load(P.student[9]);
+ if(role==='student' && x.includes('ver ranking')) return load(P.student[15]);
+ if(role==='student' && (x.includes('ver conquistas')||/^\+\d+/.test(x))) return load(P.student[13]);
+ if(role==='student' && x.includes('ver progresso')) return load(P.student[14]);
+ if(role==='student' && x.includes('abrir chamado')) return load(P.student[18]);
+ if(role==='mentor' && x.includes('ver alunas')) return load(P.mentor[1]);
+ if(role==='mentor' && x.includes('ver relatorio')) return load(P.mentor[6]);
+ // Ações comuns recebem confirmação/feedback de demonstração
+ if(['salvar','salvar alteracoes','concluir','enviar','exportar','aplicar filtros','marcar como lida','atualizar','adicionar','criar','editar','excluir','remover','arquivar','duplicar','baixar','download','imprimir','filtrar','buscar','pesquisar','ordenar','reabrir','responder','reenviar','copiar','compartilhar','cancelar convite','alterar','gerenciar','configurar','conectar','desconectar','pagar','assinar','upgrade'].some(k=>x.includes(k))){openDemoModal(raw.trim()||'Ação');return}
+ // Fallback universal: qualquer elemento clicável sem rota nunca fica sem resposta.
+ if(x && x.length<140){openDemoModal(raw.trim());return}
+ say('Funcionalidade disponível na demonstração');
+}
+window.addEventListener('message',e=>{let d=e.data;if(!d||!d.hubDemo)return;if(d.type==='click')routeText(d.text,d.title);if(d.type==='submit'){
+ let email=(d.inputs||[]).map(i=>i.value).find(v=>/@/.test(v))||'';let tt=norm(d.title);
+ if(tt==='login'){role=norm(email).includes('aluna')?'student':'mentor';sessionStorage.setItem('hub_role',role);say(role==='student'?'Acesso da aluna':'Acesso da mentora');setTimeout(()=>load(role==='student'?P.student[0]:P.mentor[0]),250)}
+ else routeText('salvar',d.title);
+}});
+let hash=location.hash.replace('#','');if(hash&&/^(access|mentor|student)-\d+$/.test(hash)){let file=hash+'.html';role=hash.startsWith('mentor')?'mentor':hash.startsWith('student')?'student':role;load(file)}else load(role==='mentor'?P.mentor[0]:role==='student'?P.student[0]:P.access[0]);
+</script></body></html>
